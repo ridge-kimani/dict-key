@@ -22,7 +22,7 @@ class DictObj(dict):
 
     def __getattr__(self, item):
         try:
-            return self['item']
+            return DictObj(**self[item])
 
         except KeyError:
             raise AttributeError(item)
